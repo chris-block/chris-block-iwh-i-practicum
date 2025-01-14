@@ -1,0 +1,27 @@
+//- ** This is a sample of a pug template and how it uses the data passed to it from index.js.
+
+doctype html
+html
+    head
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        .container
+            h1 Custom Object Table
+            a(href="/updatecobj") Add/Update this table
+            table.books-table
+                thead
+                    tr
+                        th Name
+                        th Pages
+                        th Type
+                tbody
+                    each item in data
+                        tr
+                            td #{item.properties.name}
+                            td #{item.properties.number_of_pages}
+                            td #{item.properties.type}
+                    else
+                        tr
+                            td(colspan="3") No books found
