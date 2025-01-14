@@ -53,17 +53,15 @@ app.post('/updatecobj', async (req, res) => {
       }
   }
 
-  const email = req.query.email;
-  // const updateUrl = `https://api.hubapi.com/crm/v3/objects/contacts/${email}?idProperty=email`;
   const postUrl = `https://api.hubapi.com/crm/v3/objects/${CUSTOM_OBJ_ID}`;
   const headers = {
       Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
       'Content-Type': 'application/json'
-  };
+    };
 
   try {
       await axios.post(postUrl, postBody, { headers } );
-      res.redirect('back');
+      res.redirect('/');
   } catch(err) {
       console.error(err);
   }
